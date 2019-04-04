@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from './employee.service';
 import { Employee } from '../models/employee.model';
@@ -11,7 +11,7 @@ import { Employee } from '../models/employee.model';
 export class EmployeeDetailsComponent implements OnInit {
   employee: Employee;
   private id;
-  @Input() searchTerm: string;
+
    constructor(private _route: ActivatedRoute,
     private _employeeService: EmployeeService,
     private _router: Router) { }
@@ -40,7 +40,5 @@ export class EmployeeDetailsComponent implements OnInit {
       queryParamsHandling: 'preserve'
     });
   }
-
-  
 
 }

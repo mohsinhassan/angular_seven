@@ -10,21 +10,11 @@ import { EmployeeDetailsComponent } from './employees/employee-details.component
 import { EmployeeService } from './employees/employee.service';
 import { EmployeeFilterPipe } from './employees/employee-filter.pipe';
 import { FormsModule } from '@angular/forms';
-import { EmployeeListResolverService } from './employees/employee-list-resolver.service';
-import { DisplayEmployeeComponent } from './employees/display-employee.component';
 
 
 const appRoutes : Routes = [
-  {
-    path: 'list',
-    component: ListEmployeeComponent,
-    resolve: { employeeList: EmployeeListResolverService }
-  },
-  //{  path: "create" , component : CreateEmployeeComponent},
-  {
-    path: 'edit/:id',
-    component: CreateEmployeeComponent,
-  },
+  {  path: "list" , component : ListEmployeeComponent},
+  {  path: "create" , component : CreateEmployeeComponent},
   {
     path: 'employees/:id', component: EmployeeDetailsComponent
   },
@@ -36,7 +26,6 @@ const appRoutes : Routes = [
     ListEmployeeComponent,
     CreateEmployeeComponent,
     EmployeeDetailsComponent,
-    DisplayEmployeeComponent,
     EmployeeFilterPipe
   ],
   imports: [
@@ -44,7 +33,7 @@ const appRoutes : Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [EmployeeService , EmployeeListResolverService],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

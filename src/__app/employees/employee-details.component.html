@@ -1,0 +1,73 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{employee.name}}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="col-xs-10">
+        <div class="row vertical-align">
+          <div class="col-xs-8">
+  
+            <div class="row">
+              <div class="col-xs-6">
+                Gender
+              </div>
+              <div class="col-xs-6">
+                : {{employee.gender}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                Date of Birth
+              </div>
+              <div class="col-xs-6">
+                : {{employee.dateOfBirth | date}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                Phone
+              </div>
+              <div class="col-xs-6">
+                : {{employee.phoneNumber}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                Email
+              </div>
+              <div class="col-xs-6">
+                : {{employee.email}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                Department
+              </div>
+              <!-- <div class="col-xs-6" [ngSwitch]="employee.department">
+                  :{{employee.department}}
+              </div> -->
+
+              <div class="col-xs-6" [ngSwitch]="employee.department">
+                :
+                <span *ngSwitchCase="Help Desk">Help Desk</span>
+                <span *ngSwitchCase="HR">HR</span>
+                <span *ngSwitchCase="IT">IT</span>
+                <span *ngSwitchCase="Payroll">Payroll</span>
+                <span *ngSwitchDefault>N/A</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <a [routerLink]="['/list',{id:employee.id}]"
+        queryParamsHandling="preserve">
+          Back to List
+      </a>
+      <button class="btn btn-primary pull-right" (click)="getNextEmployee()">
+          View Next Employee
+        </button>
+    </div>
+  </div>

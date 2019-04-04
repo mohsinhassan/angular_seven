@@ -1,3 +1,87 @@
-<p>
-  create-employee works!
-</p>
+<form #employeeForm="ngForm" ngNativeValidate (ngSubmit)="saveEmployee(employee);">
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"></h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="form-group" [class.has-error]="id.touched && id.invalid">
+          <label for="title">ID</label>
+          <input id="title" required name="id" #id="ngModel" [(ngModel)]="employee.id" type="text" class="form-control">
+          <span class="help-block" *ngIf="!(id.errors && id.errors.required)">
+            ID is required
+          </span>
+          
+        </div>
+        <div>
+          Touched : {{employeeForm.touched}}
+          Pristine : {{employeeForm.pristine}}
+          valid : {{employeeForm.valid}}
+        </div>
+
+        <div class="form-group" [class.has-error]="name.touched && name.invalid">
+          <label for="name">name</label>
+          <input id="name" required name="name" #name="ngModel" [(ngModel)]="employee.name" type="text"
+            class="form-control">
+          <span class="help-block" *ngIf="name.invalid && name.touched">
+            Name is required
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="gender.touched && gender.invalid">
+          <label for="userId">gender</label>
+          <input id="userId" required name="gender" #gender="ngModel" [(ngModel)]="employee.gender" type="text"
+            class="form-control">
+          <span class="help-block" *ngIf="gender.invalid && gender.touched">
+            Gender is required
+          </span>
+          
+        </div>
+
+        <div class="form-group" [class.has-error]="email.touched && email.invalid">
+          <label for="userId">email</label>
+          <input id="userId" required name="email" #email="ngModel" [(ngModel)]="employee.email" type="text"
+            class="form-control">
+          <span class="help-block" *ngIf="email.invalid && email.touched">
+              email is required
+          </span>
+          <span class="help-block" *ngIf="email.errors?.email && email.touched">
+              Not valid email
+            </span>
+        </div>
+        <div class="form-group" [class.has-error]="phoneNumber.touched && phoneNumber.invalid">
+          <label for="userId">phoneNumber</label>
+          <input id="userId" required name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="employee.phoneNumber" type="text"
+            class="form-control">
+          <span class="help-block" *ngIf="phoneNumber.invalid && phoneNumber.touched">
+              phoneNumber is required
+          </span>
+        </div>
+        <div class="form-group" [class.has-error]="department.touched && department.invalid">
+          <label for="userId">department</label>
+          <input id="userId" required name="department" #department="ngModel" [(ngModel)]="employee.department" type="text"
+            class="form-control">
+          <span class="help-block" *ngIf="department.invalid && department.touched">
+              department is required
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="dateOfBirth.touched && dateOfBirth.invalid">
+            <label for="userId">dateOfBirth</label>
+            <input id="userId" required name="dateOfBirth" #dateOfBirth="ngModel" [(ngModel)]="employee.dateOfBirth" type="text"
+              class="form-control">
+            <span class="help-block" *ngIf="dateOfBirth.invalid && dateOfBirth.touched">
+                dateOfBirth is required
+            </span>
+          </div>
+      </div>
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+
+    </div>
+  </div>
+</form>
+
+{{employeeForm.value | json }}

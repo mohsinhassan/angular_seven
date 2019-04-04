@@ -1,0 +1,29 @@
+<div class="pointerCursor">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{employee.name}}</h3>
+    </div>
+      <div class="panel-body">
+  
+        
+          <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                ID : {{employee.id}}
+                <span class="badge badge-primary badge-pill"></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Name : {{employee.name}}
+                <span class="badge badge-primary badge-pill"></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Gender : {{employee.gender}}
+                <span class="badge badge-primary badge-pill"></span>
+              </li>
+            </ul>
+            <div><button class="btn btn-primary pull-right" (click)="viewNextEmployee">Next</button></div>
+          </div>
+          <div class="panel-footer">
+            <button class="btn btn-primary" (click)="viewEmployee(employee.id)">View</button>
+            <button class="btn btn-primary" (click)="editEmployee()">Edit</button>
+            <button class="btn btn-danger">Delete</button>
+          </div>
+        </div>
