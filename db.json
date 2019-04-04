@@ -1,0 +1,32 @@
+{
+  "employees":
+   [
+    {
+      "id":  1,
+      "name": "Ali",
+      "gender": "Male",
+      "email": "ali@online.com",
+      "phoneNumber": "343243242",
+      "department": "IT",
+      "dateOfBirth": "01-01-2000"
+    },
+    {
+      "id":  2,
+      "name": "Asad",
+      "gender": "Male",
+      "email": "asad@online.com",
+      "phoneNumber": "343243242",
+      "department": "Finance",
+      "dateOfBirth": "02-02-2002"
+    },
+    {
+      "id":  3,
+      "name": "Asma",
+      "gender": "Female",
+      "email": "asma@online.com",
+      "phoneNumber": "343243242",
+      "department": "HR",
+      "dateOfBirth": "01-01-2003"
+    }
+  ]
+}
