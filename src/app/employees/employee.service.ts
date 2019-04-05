@@ -3,6 +3,7 @@ import { Employee } from '../models/employee.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable()
@@ -33,14 +34,21 @@ export class EmployeeService {
             department: 'IT'
         },
     ];
+
+    constructor(private httpClient: HttpClient) {
+    }
     
 
     // getEmployees(): Employee[] {
     //     return this.listEmployees;
     // }
 
+    // getEmployees(): Observable<Employee[]> {
+    //     return Observable.of(this.listEmployees).delay(20);
+    // }
+
     getEmployees(): Observable<Employee[]> {
-        return Observable.of(this.listEmployees).delay(20);
+      return this.httpClient.get<Employee[]>('http://localhost:3000/employees');
     }
 
     getEmployee(id: number): Employee {
