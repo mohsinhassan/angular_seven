@@ -39,6 +39,8 @@ export class ListEmployeeComponent implements OnInit {
     }
   }
 
+  
+
 // constructor(private _employeeService: EmployeeService,
 //   private _route: ActivatedRoute, private _router: Router ) { }
 
@@ -103,6 +105,19 @@ export class ListEmployeeComponent implements OnInit {
       this._router.navigate(['/employees', employeeId], {
         queryParams: { 'searchTerm': this.searchTerm }
       });
+  }
+
+  onDeleteNotification(id: number) {
     
-}
+    const i = this.filteredEmployees.findIndex(e => e.id === id);
+    console.log(this.filteredEmployees);
+    console.log("notify");
+    // if (i !== -1) {
+       this.filteredEmployees.splice(i, 1);
+    // }
+    //   //this.filteredEmployees = []
+       console.log('###');
+       console.log(this.filteredEmployees);
+    
+  }
 }

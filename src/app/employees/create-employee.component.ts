@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { EmployeeService } from './employee.service';
 import { Router, Route, ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create-employee',
@@ -12,6 +13,7 @@ export class CreateEmployeeComponent implements OnInit {
   panelTitle: string;
   
   employee : Employee;
+  @ViewChild('EmployeeForm') public createEmployeeForm :NgForm;
   constructor(private _employeeService : EmployeeService, private _router : Router ,private _route : ActivatedRoute) { }
 
   ngOnInit() {
@@ -49,7 +51,7 @@ export class CreateEmployeeComponent implements OnInit {
         dateOfBirth : null,
       };
       // Resetting the form, resets any previous validation errors
-      //this.createEmployeeForm.reset();
+      this.createEmployeeForm.reset();
       this.panelTitle = 'Create Employee';
     } else {
       // If the Id is not 0, then retrieve the respective employee using the employee 

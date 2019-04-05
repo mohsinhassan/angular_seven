@@ -7,7 +7,7 @@
     [class.panel-success]="selectedEmployeeId === employee.id"  *ngFor="let employee of filteredEmployees | employeeFilter:searchTerm">
 <!-- <div class="panel panel-primary" *ngFor="let employee of employees"> -->
 
-    <app-display-employee [employee]="employee" [searchTerm]="searchTerm">
+    <app-display-employee [employee]="employee" [searchTerm]="searchTerm" (notifyDelete)="onDeleteNotification($event)">
     </app-display-employee>
     
       </div>

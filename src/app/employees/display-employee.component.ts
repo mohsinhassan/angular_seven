@@ -1,6 +1,7 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit , Input, EventEmitter, Output } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { Router } from '@angular/router';
+import { EmployeeService } from './employee.service';
 
 @Component({
   selector: 'app-display-employee',
@@ -12,8 +13,9 @@ export class DisplayEmployeeComponent implements OnInit {
    
   @Input() employee : Employee;
   @Input() searchTerm : string;
+  @Output() notifyDelete: EventEmitter<number> = new EventEmitter<number>();
   
-  constructor(private _router: Router) { }
+  constructor(private _router: Router ,private _employeeService : EmployeeService ) { }
 
   ngOnInit() {
     console.log("here32");
@@ -29,6 +31,10 @@ export class DisplayEmployeeComponent implements OnInit {
     this._router.navigate(['/edit', this.employee.id]);
   }
 
+  deleteEmployee() {
+    this._employeeService.deleteEmployee(this.employee.id);
+    this.notifyDelete.emit(this.employee.id);
+  }
   // ngOnChanges( changes : SimpleChanges){
   //   for ( const propName of Object.keys(changes)) {
   //     const change = changes[propName];
